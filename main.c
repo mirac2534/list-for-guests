@@ -9,16 +9,16 @@ struct Contact
     char emailAddress[50];
 };
 
-int addContact(struct Contact [],int);// in this funciton, addition is made
-void displayContacts(struct Contact [],int);// in this function, shows the addition
+int addContact(struct Contact [], int); // In this funciton, addition is made
+void displayContacts(struct Contact [], int); // In this function, shows the addition
 
 int main()
 {
-   struct Contact addressBook[100];//adress book max for 100 people
-   int contactCount=0;
+   struct Contact addressBook[100]; // Adress book max for 100 people
+   int contactCount = 0;
    int choice;
 
-do//we use do-while to do menu
+do 
 {
 
 printf("\n Address Book Menu:  \n");
@@ -31,11 +31,11 @@ scanf("%d",&choice);
 switch(choice)
 {
 case 1:
-    contactCount=addContact(addressBook,contactCount)==1?contactCount+1:contactCount;
+    contactCount=addContact(addressBook, contactCount) == 1?contactCount+1:contactCount;
     break;
 
 case 2:
-    displayContacts(addressBook,contactCount);
+    displayContacts(addressBook, contactCount);
     break;
 
 case 3:
@@ -44,26 +44,26 @@ case 3:
 default:
     printf("Invalid choice.Please enter a valid option\n");
 }
-}while(choice!=3);
+}while(choice! = 3);
 return 0;
 }
 
-int addContact(struct Contact addressBook[],int contactCount)// this function is useful for addition
+int addContact(struct Contact addressBook[], int contactCount) // This function is useful for addition
 {
-    if (contactCount<100)
+    if (contactCount < 100)
     {
         struct Contact newContact;
 
-        printf("Enter First Name: ");//we enter first name
+        printf("Enter First Name: "); // We enter first name
         scanf("%s",newContact.firstName);
-        printf("Enter Last Name: ");//we enter last name
+        printf("Enter Last Name: "); // We enter last name
         scanf("%s",newContact.lastName);
-        printf("Enter Phone Number: ");//we enter phone number
+        printf("Enter Phone Number: "); // We enter phone number
         scanf("%s",newContact.phoneNumber);
-        printf("Enter email Address: ");//we enter e-mail address
+        printf("Enter email Address: "); // We enter e-mail address
         scanf("%s",newContact.emailAddress);
 
-        addressBook[contactCount]=newContact;
+        addressBook[contactCount] = newContact;
         printf("contact added successfully\n");
         return 1;
     }
@@ -75,13 +75,13 @@ int addContact(struct Contact addressBook[],int contactCount)// this function is
 return 0;
 }
 
-void displayContacts(struct Contact addressBook[],int contactCount)//this function is useful for show/display addition
+void displayContacts(struct Contact addressBook[], int contactCount) // This function is useful for show/display addition
 {
-    if(contactCount>0)
+    if(contactCount > 0)
     {
         printf("\n Contacts in the Address Book:\n");
         printf("%-15s %-15s %-15s %-30s","First Name","Last Name","Phone Number","Email Address");
-        for(int i=0;i<contactCount;i++)
+        for(int i=0; i<contactCount; i++)
         {
             printf("%-15s %-15s %-15s %-30s",
                    addressBook[i].firstName,
